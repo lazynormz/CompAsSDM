@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\MovieRating.Domain\MovieRating.Domain.csproj" />
+      <ProjectReference Include="..\MovieRating.Infrastucture\MovieRating.Infrastucture.csproj" />
     </ItemGroup>
 
 </Project>
