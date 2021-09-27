@@ -1,21 +1,26 @@
 ﻿using System.Collections.Generic;
 using MovieRating.Core.IService;
+using MovieRating.Core.Model;
+using MovieRating.Domain.IRepositories;
 
 namespace MovieRating.Domain.Service
 {
     public class ReviewService : IReviewService
     {
-        public ReviewService()
+        private IReviewRepository rp;
+        private List<MovieReview> _list = new List<MovieReview>();
+        public ReviewService(IReviewRepository Irp)
         {
-            
+            rp = Irp;
+            _list = rp.FindAll();
         }
 
         public int GetNumberOfReviewsFromReviewer(int reviewer)
         {
             int i = 0;
-            foreach (int rwer in COLLECTION)
+            foreach (MovieReview mr in _list)
             {
-                if (rwer == reviewer)
+                if (mr.Reviewer == reviewer)
                     i++;
             }
 

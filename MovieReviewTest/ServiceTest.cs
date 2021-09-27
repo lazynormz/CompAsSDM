@@ -6,7 +6,7 @@ namespace MovieReviewTest
     public class ServiceTest
     {
         private IReviewService rs;
-        
+
         public ServiceTest()
         {
             rs = new ReviewService();
