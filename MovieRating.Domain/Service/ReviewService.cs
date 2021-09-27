@@ -5,9 +5,21 @@ namespace MovieRating.Domain.Service
 {
     public class ReviewService : IReviewService
     {
+        public ReviewService()
+        {
+            
+        }
+
         public int GetNumberOfReviewsFromReviewer(int reviewer)
         {
-            return -1;
+            int i = 0;
+            foreach (int rwer in COLLECTION)
+            {
+                if (rwer == reviewer)
+                    i++;
+            }
+
+            return i;
         }
 
         public double GetAverageRateFromReviewer(int reviewer)
