@@ -1,13 +1,30 @@
 ﻿using System.Collections.Generic;
 using MovieRating.Core.IService;
+using MovieRating.Core.Model;
+using MovieRating.Domain.IRepositories;
 
 namespace MovieRating.Domain.Service
 {
     public class ReviewService : IReviewService
     {
+        private IReviewRepository rp;
+        private List<MovieReview> _list = new List<MovieReview>();
+        public ReviewService(IReviewRepository Irp)
+        {
+            rp = Irp;
+            _list = rp.FindAll();
+        }
+
         public int GetNumberOfReviewsFromReviewer(int reviewer)
         {
-            return -1;
+            int i = 0;
+            foreach (MovieReview mr in _list)
+            {
+                if (mr.Reviewer == reviewer)
+                    i++;
+            }
+
+            return i;
         }
 
         public double GetAverageRateFromReviewer(int reviewer)
