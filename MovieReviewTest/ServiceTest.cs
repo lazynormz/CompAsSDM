@@ -23,5 +23,14 @@ namespace MovieReviewTest
             int amount = rs.GetNumberOfReviewsFromReviewer(wantedReviewer);
             Assert.Equal(expectedResult, amount);
         }
+
+        [Fact]
+        public void TestAverageRatingFromReviewer()
+        {
+            int wantedViewer = 6;
+            double expectedResult = 5;
+            double result = rs.GetAverageRateFromReviewer(wantedViewer);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

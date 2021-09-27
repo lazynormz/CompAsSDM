@@ -29,8 +29,8 @@ namespace MovieRating.Domain.Service
 
         public double GetAverageRateFromReviewer(int reviewer)
         {
-            int total = 0;
-            int ratings = 0;
+            double total = 0;
+            double ratings = 0;
             foreach (MovieReview mr in _list)
             {
                 if (mr.Reviewer == reviewer)
