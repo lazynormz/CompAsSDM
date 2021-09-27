@@ -18,7 +18,7 @@ namespace MovieReviewTest
         [Fact]
         public void TestAmountOfReviewsFromReviewer()
         {
-            int expectedResult = 548;
+            int expectedResult = 547;
             int wantedReviewer = 1;
             int amount = rs.GetNumberOfReviewsFromReviewer(wantedReviewer);
             Assert.Equal(expectedResult, amount);
