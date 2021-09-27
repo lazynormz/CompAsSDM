@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRating.Core", "MovieRa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRating.Domain", "MovieRating.Domain\MovieRating.Domain.csproj", "{F2769C1A-EE56-4CFE-A507-2F29347EE974}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieReviewTest", "MovieReviewTest\MovieReviewTest.csproj", "{346C503C-A43B-412C-A0E7-C8AB47B589FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{F2769C1A-EE56-4CFE-A507-2F29347EE974}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2769C1A-EE56-4CFE-A507-2F29347EE974}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2769C1A-EE56-4CFE-A507-2F29347EE974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346C503C-A43B-412C-A0E7-C8AB47B589FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346C503C-A43B-412C-A0E7-C8AB47B589FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346C503C-A43B-412C-A0E7-C8AB47B589FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346C503C-A43B-412C-A0E7-C8AB47B589FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
