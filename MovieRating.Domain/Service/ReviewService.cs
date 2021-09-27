@@ -29,7 +29,23 @@ namespace MovieRating.Domain.Service
 
         public double GetAverageRateFromReviewer(int reviewer)
         {
-            return -1;
+            int total = 0;
+            int ratings = 0;
+            foreach (MovieReview mr in _list)
+            {
+                if (mr.Reviewer == reviewer)
+                {
+                    total += mr.Grade;
+                    ratings++;
+                }
+            }
+
+            if (ratings == 0)
+                return -1;
+            
+            // ReSharper disable once PossibleLossOfFraction
+            double returnValue = total / ratings;
+            return returnValue;
         }
 
         public int GetNumberOfRatesByReviewer(int reviewer, int rate)
