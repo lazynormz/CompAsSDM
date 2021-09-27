@@ -1,4 +1,3 @@
-[
   { Reviewer:1, Movie:1488844, Grade:3, Date:'2005-09-06'},
   { Reviewer:1, Movie:822109, Grade:5, Date:'2005-05-13'},
   { Reviewer:1, Movie:885013, Grade:4, Date:'2005-10-19'},
@@ -2949,5 +2948,4 @@
   { Reviewer:5, Movie:743694, Grade:5, Date:'2005-01-07'},
   { Reviewer:5, Movie:1207247, Grade:5, Date:'2005-04-04'},
   { Reviewer:5, Movie:350055, Grade:4, Date:'2005-05-27'},
-  { Reviewer:5, Movie:2523436, Grade:5, Date:'2005-12-04'}
-]
+  { Reviewer:5, Movie:2523436, Grade:5, Date:'2005-12-04'},

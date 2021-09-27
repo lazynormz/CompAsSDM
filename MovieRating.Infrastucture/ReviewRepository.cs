@@ -1,14 +1,18 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 using MovieRating.Core.Model;
 using MovieRating.Domain.IRepositories;
+using Newtonsoft.Json;
 
 namespace MovieRating.Infrastucture
 {
     public class ReviewRepository : IReviewRepository
     {
-        private const string _fileName = "";
+        private const string _fileName =
+            "/home/jagd/RiderProjects/MovieRatingCompulsory/MovieRating.Infrastucture/ratings.json";
 
         private static List<MovieReview> _list;
 
@@ -20,14 +24,17 @@ namespace MovieRating.Infrastucture
 
         private void initData()
         {
-            using (StreamReader r = new StreamReader(_fileName))
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.DateFormatString = "yyy-MM-dd";
+
+            string line = "";
+
+            using (StreamReader sr = new StreamReader(_fileName))
             {
-                string line;
-                while ((line = r.ReadLine()) != null)
+                while ((line = sr.ReadLine()?.Trim()) != null)
                 {
-                    if (line.EndsWith(","))
-                        line = line.Substring(0, line.Length - 2);
-                    _list.Add(JsonSerializer.Deserialize<MovieReview>(line));
+                    line = line.Substring(0, line.Length - 1);
+                    _list.Add(JsonConvert.DeserializeObject<MovieReview>(line, settings));
                 }
             }
         }
