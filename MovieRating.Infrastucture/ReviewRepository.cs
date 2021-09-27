@@ -8,7 +8,7 @@ namespace MovieRating.Infrastucture
 {
     public class ReviewRepository : IReviewRepository
     {
-        private const string _fileName = "";
+        private const string _fileName = "./ratings.json";
 
         private static List<MovieReview> _list;
 
@@ -27,6 +27,8 @@ namespace MovieRating.Infrastucture
                 {
                     if (line.EndsWith(","))
                         line = line.Substring(0, line.Length - 2);
+                    if(line.Contains("[") || line.Contains("]"))
+                        continue;
                     _list.Add(JsonSerializer.Deserialize<MovieReview>(line));
                 }
             }

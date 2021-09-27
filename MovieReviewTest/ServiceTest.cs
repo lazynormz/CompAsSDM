@@ -12,7 +12,7 @@ namespace MovieReviewTest
         public ServiceTest()
         {
             rr = new ReviewRepository();
-            rs = new ReviewService(rs);
+            rs = new ReviewService(rr);
         }
 
         [Fact]
