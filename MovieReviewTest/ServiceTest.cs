@@ -32,5 +32,15 @@ namespace MovieReviewTest
             double result = rs.GetAverageRateFromReviewer(wantedViewer);
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void Test_GetNumberOfRatesByReviewer()
+        {
+            int wantedReviewer = 1;
+            int wantedRate = 3;
+            int expectedResult = 136;
+            int result = rs.GetNumberOfRatesByReviewer(wantedReviewer, wantedRate);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
