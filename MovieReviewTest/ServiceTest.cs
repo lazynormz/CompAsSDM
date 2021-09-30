@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Intrinsics.X86;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using MovieRating.Core.IService;
 using MovieRating.Domain.Service;
 using MovieRating.Infrastucture;
@@ -98,7 +99,24 @@ namespace MovieReviewTest
         [Fact]
         public void TestGetMoviesWithHighestNumberOfTopRates()
         {
-            
+            List<int> expectedResult = new List<int>();
+            expectedResult.Add(7);
+            List<int> result = rs.GetMoviesWithHighestNumberOfTopRates();
+            Assert.Equal(new List<int>(), result);
+        }
+
+        [Fact]
+        public void TestGetTopMoviesByReviewer()
+        {
+            int wantedReviewer = 4;
+            List<int> expectedResult = new List<int>();
+            expectedResult.Add(10);
+            expectedResult.Add(8);
+            expectedResult.Add(4);
+            expectedResult.Add(9);
+            expectedResult.Add(1);
+            List<int> result = rs.GetTopMoviesByReviewer(wantedReviewer);
+            Assert.Equal(expectedResult,result);
         }
     }
 }
