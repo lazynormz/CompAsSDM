@@ -115,16 +115,19 @@ namespace MovieRating.Domain.Service
             int highestAmountOfTopRatings = 0;
             foreach (MovieReview review in _list)
             {
-                int amountOfTopRatings = GetNumberOfRates(review.Movie, review.Grade);
-                if (amountOfTopRatings > highestAmountOfTopRatings)
+                int amountOfTopRatings = GetNumberOfRates(review.Movie, 5);
+                if (!topRatedMovies.Contains(review.Movie))
                 {
-                    topRatedMovies = new List<int>();
-                    topRatedMovies.Add(review.Movie);
-                    highestAmountOfTopRatings = amountOfTopRatings;
-                }
-                else if (amountOfTopRatings == highestAmountOfTopRatings)
-                {
-                    topRatedMovies.Add(review.Movie);
+                    if (amountOfTopRatings > highestAmountOfTopRatings)
+                    {
+                        topRatedMovies = new List<int>();
+                        topRatedMovies.Add(review.Movie);
+                        highestAmountOfTopRatings = amountOfTopRatings;
+                    }
+                    else if (amountOfTopRatings == highestAmountOfTopRatings)
+                    {
+                        topRatedMovies.Add(review.Movie);
+                    }
                 }
             }
 
@@ -213,6 +216,11 @@ namespace MovieRating.Domain.Service
 
         public List<int> GetReviewersByMovie(int movie)
         {
+            List<MovieReview> reviewsOfMovie = new List<MovieReview>();
+            foreach (MovieReview movieReview in _list)
+            {
+                
+            }
             return null;
         }
     }
