@@ -42,5 +42,15 @@ namespace MovieReviewTest
             int result = rs.GetNumberOfRatesByReviewer(wantedReviewer, wantedRate);
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+
+        public void TestGetNumberOfReviews()
+        {
+            int wantedMovie = 786312;
+            int expectedResult = 2;
+            int result = rs.GetNumberOfReviews(wantedMovie);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
