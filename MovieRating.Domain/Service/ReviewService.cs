@@ -79,7 +79,20 @@ namespace MovieRating.Domain.Service
 
         public double GetAverageRateOfMovie(int movie)
         {
-            return -1;
+            double averageMovieRate = 0;
+            int totalReviews = GetNumberOfReviews(movie);
+            int sumOfRates = 0;
+            foreach (MovieReview review in _list)
+            {
+                if (review.Movie == movie)
+                {
+                    sumOfRates += review.Grade;
+                }
+            }
+
+            averageMovieRate = sumOfRates/totalReviews;
+            
+            return averageMovieRate;
         }
 
         public int GetNumberOfRates(int movie, int rate)
