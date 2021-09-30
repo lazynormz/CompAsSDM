@@ -76,10 +76,9 @@ namespace MovieReviewTest
         [Fact]
         public void TestGetTopRatedMovies()
         {
-            int requestedAmount = 2;
+            int requestedAmount = 1;
             List<int> expectedResult = new List<int>();
-            expectedResult.Add(9);
-            expectedResult.Add(10);
+            expectedResult.Add(7);
             List<int> result = rs.GetTopRatedMovies(requestedAmount);
             Assert.Equal(expectedResult, result);
         }
