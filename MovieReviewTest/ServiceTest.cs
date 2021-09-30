@@ -61,5 +61,15 @@ namespace MovieReviewTest
             double result = rs.GetAverageRateOfMovie(wantedMovie);
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void TestGetNumberOfRates()
+        {
+            int movie = 2, rate = 2;
+            int expectedResult = 2;
+            int result = rs.GetNumberOfRates(movie, rate);
+            Assert.Equal(expectedResult, result);
+
+        }
     }
 }
