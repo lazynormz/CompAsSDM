@@ -90,7 +90,7 @@ namespace MovieRating.Domain.Service
                 }
             }
 
-            averageMovieRate = sumOfRates/totalReviews;
+            averageMovieRate = (double)sumOfRates/totalReviews;
             
             return averageMovieRate;
         }
