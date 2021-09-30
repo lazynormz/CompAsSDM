@@ -230,7 +230,7 @@ namespace MovieRating.Domain.Service
             
             List<int> movieList = new List<int>();
 
-            foreach (MovieReview review in _list)
+            foreach (MovieReview review in reviewsOfMovie)
             {
                 movieList.Add(review.Movie);
             }
