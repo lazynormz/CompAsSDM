@@ -138,13 +138,13 @@ namespace MovieRating.Domain.Service
             foreach (MovieReview review in _list)
             {
                 int amountOfTopRatings = GetNumberOfReviewsFromReviewer(review.Reviewer);
-                if (amountOfTopRatings > highestAmountOfRatings)
+                if (amountOfTopRatings > highestAmountOfRatings && !mostProductiveReviewers.Contains(review.Reviewer))
                 {
                     mostProductiveReviewers = new List<int>();
                     mostProductiveReviewers.Add(review.Reviewer);
                     highestAmountOfRatings = amountOfTopRatings;
                 }
-                else if (amountOfTopRatings == highestAmountOfRatings)
+                else if (amountOfTopRatings == highestAmountOfRatings && !mostProductiveReviewers.Contains(review.Reviewer))
                 {
                     mostProductiveReviewers.Add(review.Reviewer);
                 }
