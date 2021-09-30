@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MovieRating.Core.IService;
 using MovieRating.Core.Model;
 using MovieRating.Domain.IRepositories;
@@ -120,7 +121,35 @@ namespace MovieRating.Domain.Service
 
         public List<int> GetTopRatedMovies(int amount)
         {
-            return null;
+            List<int> movies = new List<int>();
+            foreach(MovieReview review in _list)
+            {
+                if (!movies.Contains(review.Movie))
+                {
+                    movies.Add(review.Movie);
+                }
+            }
+            
+            //<Movie, amountOfTopReviews>
+            Dictionary<int, int> movieTopReview = new Dictionary<int, int>();
+
+            foreach (int movie in movies)
+            {
+                int numberOfTopRates = GetNumberOfRates(movie, 5);
+                
+                movieTopReview.Add(movie, numberOfTopRates);
+            }
+            
+            var sortedList = movieTopReview.ToList();
+
+            sortedList.Sort((movie,amountOfTopReviews) => movie.Value.CompareTo(amountOfTopReviews.Value));
+            List<int> topMovieList = new List<int>();
+            for (int i = sortedList.Count - amount; i < sortedList.Count; i++)
+            {
+                topMovieList.Add(movieTopReview.ElementAt(i).Key);
+            }
+            
+            return topMovieList;
         }
 
         public List<int> GetTopMoviesByReviewer(int reviewer)
