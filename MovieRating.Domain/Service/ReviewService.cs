@@ -198,7 +198,7 @@ namespace MovieRating.Domain.Service
                 }
             }
 
-            reviewsByReviewer = reviewsByReviewer.OrderByDescending((r => r.Date)).ToList();
+            reviewsByReviewer = reviewsByReviewer.OrderByDescending(r => r.Date).ToList();
             reviewsByReviewer = reviewsByReviewer.OrderByDescending(r => r.Grade).ToList();
 
             List<int> movieList = new List<int>();
@@ -219,9 +219,23 @@ namespace MovieRating.Domain.Service
             List<MovieReview> reviewsOfMovie = new List<MovieReview>();
             foreach (MovieReview movieReview in _list)
             {
-                
+                if (movieReview.Movie == movie)
+                {
+                    reviewsOfMovie.Add(movieReview);
+                }
             }
-            return null;
+
+            reviewsOfMovie = reviewsOfMovie.OrderByDescending(r => r.Date).ToList();
+            reviewsOfMovie = reviewsOfMovie.OrderByDescending(r => r.Grade).ToList();
+            
+            List<int> movieList = new List<int>();
+
+            foreach (MovieReview review in _list)
+            {
+                movieList.Add(review.Movie);
+            }
+            
+            return movieList;
         }
     }
 }
