@@ -50,7 +50,18 @@ namespace MovieRating.Domain.Service
 
         public int GetNumberOfRatesByReviewer(int reviewer, int rate)
         {
-            return -1;
+            int totalrates = 0;
+            foreach (MovieReview review in _list)
+            {
+                if (review.Reviewer == reviewer)
+                {
+                    if (review.Grade == rate)
+                    {
+                        totalrates++;
+                    }
+                }
+            }
+            return totalrates;
         }
 
         public int GetNumberOfReviews(int movie)
