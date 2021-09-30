@@ -122,19 +122,35 @@ namespace MovieRating.Domain.Service
                     topRatedMovies.Add(review.Movie);
                     highestAmountOfTopRatings = amountOfTopRatings;
                 }
-                else if(amountOfTopRatings == highestAmountOfTopRatings)
+                else if (amountOfTopRatings == highestAmountOfTopRatings)
                 {
                     topRatedMovies.Add(review.Movie);
                 }
             }
-            
 
             return topRatedMovies;
         }
 
         public List<int> GetMostProductiveReviewers()
         {
-            return null;
+            List<int> mostProductiveReviewers = new List<int>();
+            int highestAmountOfRatings = 0;
+            foreach (MovieReview review in _list)
+            {
+                int amountOfTopRatings = GetNumberOfReviewsFromReviewer(review.Reviewer);
+                if (amountOfTopRatings > highestAmountOfRatings)
+                {
+                    mostProductiveReviewers = new List<int>();
+                    mostProductiveReviewers.Add(review.Reviewer);
+                    highestAmountOfRatings = amountOfTopRatings;
+                }
+                else if (amountOfTopRatings == highestAmountOfRatings)
+                {
+                    mostProductiveReviewers.Add(review.Reviewer);
+                }
+            }
+
+            return mostProductiveReviewers;
         }
 
         public List<int> GetTopRatedMovies(int amount)
