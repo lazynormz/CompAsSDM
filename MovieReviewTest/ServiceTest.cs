@@ -102,7 +102,7 @@ namespace MovieReviewTest
             List<int> expectedResult = new List<int>();
             expectedResult.Add(7);
             List<int> result = rs.GetMoviesWithHighestNumberOfTopRates();
-            Assert.Equal(new List<int>(), result);
+            Assert.Equal(expectedResult, result);
         }
 
         [Fact]
@@ -117,6 +117,17 @@ namespace MovieReviewTest
             expectedResult.Add(1);
             List<int> result = rs.GetTopMoviesByReviewer(wantedReviewer);
             Assert.Equal(expectedResult,result);
+        }
+
+        [Fact]
+        public void TestGetReviewersByMovie()
+        {
+            int wantedMovie = 4;
+            List<int> expectedResult = new List<int>();
+            expectedResult.Add(1);
+            expectedResult.Add(4);
+            List<int> result = rs.GetReviewersByMovie(wantedMovie);
+            Assert.Equal(expectedResult, result);
         }
     }
 }
