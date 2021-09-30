@@ -232,7 +232,7 @@ namespace MovieRating.Domain.Service
 
             foreach (MovieReview review in reviewsOfMovie)
             {
-                movieList.Add(review.Movie);
+                movieList.Add(review.Reviewer);
             }
             
             return movieList;
