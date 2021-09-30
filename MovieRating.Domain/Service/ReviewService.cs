@@ -111,7 +111,25 @@ namespace MovieRating.Domain.Service
 
         public List<int> GetMoviesWithHighestNumberOfTopRates()
         {
-            return null;
+            List<int> topRatedMovies = new List<int>();
+            int highestAmountOfTopRatings = 0;
+            foreach (MovieReview review in _list)
+            {
+                int amountOfTopRatings = GetNumberOfRates(review.Movie, review.Grade);
+                if (amountOfTopRatings > highestAmountOfTopRatings)
+                {
+                    topRatedMovies = new List<int>();
+                    topRatedMovies.Add(review.Movie);
+                    highestAmountOfTopRatings = amountOfTopRatings;
+                }
+                else if(amountOfTopRatings == highestAmountOfTopRatings)
+                {
+                    topRatedMovies.Add(review.Movie);
+                }
+            }
+            
+
+            return topRatedMovies;
         }
 
         public List<int> GetMostProductiveReviewers()
