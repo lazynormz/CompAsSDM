@@ -173,12 +173,10 @@ namespace MovieRating.Domain.Service
                 
                 movieTopReview.Add(movie, numberOfTopRates);
             }
-            
-            var sortedList = movieTopReview.ToList();
 
-            sortedList.Sort((movie,amountOfTopReviews) => movie.Value.CompareTo(amountOfTopReviews.Value));
+            movieTopReview = movieTopReview.OrderBy(m => m.Value).ToDictionary(m => m.Key, m => m.Value);
             List<int> topMovieList = new List<int>();
-            for (int i = sortedList.Count - amount; i < sortedList.Count; i++)
+            for (int i = movieTopReview.Count - amount; i < movieTopReview.Count; i++)
             {
                 topMovieList.Add(movieTopReview.ElementAt(i).Key);
             }
