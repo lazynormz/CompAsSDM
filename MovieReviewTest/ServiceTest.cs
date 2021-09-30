@@ -82,5 +82,23 @@ namespace MovieReviewTest
             List<int> result = rs.GetTopRatedMovies(requestedAmount);
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void TestGetMostProductiveReviewers()
+        {
+            List<int> expectedResult = new List<int>();
+            expectedResult.Add(1);
+            expectedResult.Add(2);
+            expectedResult.Add(3);
+            expectedResult.Add(4);
+            List<int> result = rs.GetMostProductiveReviewers(); 
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void TestGetMoviesWithHighestNumberOfTopRates()
+        {
+            
+        }
     }
 }
