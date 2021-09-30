@@ -113,8 +113,8 @@ namespace MovieReviewTest
             expectedResult.Add(10);
             expectedResult.Add(8);
             expectedResult.Add(4);
-            expectedResult.Add(9);
             expectedResult.Add(1);
+            expectedResult.Add(9);
             List<int> result = rs.GetTopMoviesByReviewer(wantedReviewer);
             Assert.Equal(expectedResult,result);
         }
