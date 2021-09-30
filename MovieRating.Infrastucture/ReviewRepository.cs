@@ -11,14 +11,14 @@ namespace MovieRating.Infrastucture
 {
     public class ReviewRepository : IReviewRepository
     {
-        private const string _fileName =
-            "ratings.json";
+        private string _fileName;
 
         private static List<MovieReview> _list;
 
-        public ReviewRepository()
+        public ReviewRepository(string fileName = "ratings.json")
         {
             _list = new List<MovieReview>();
+            _fileName = fileName;
             initData();
         }
 

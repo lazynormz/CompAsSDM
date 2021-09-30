@@ -11,14 +11,14 @@ namespace MovieReviewTest
 
         public ServiceTest()
         {
-            rr = new ReviewRepository();
+            rr = new ReviewRepository("MOCK.json");
             rs = new ReviewService(rr);
         }
 
         [Fact]
         public void TestAmountOfReviewsFromReviewer()
         {
-            int expectedResult = 547;
+            int expectedResult = 5;
             int wantedReviewer = 1;
             int amount = rs.GetNumberOfReviewsFromReviewer(wantedReviewer);
             Assert.Equal(expectedResult, amount);
@@ -27,8 +27,8 @@ namespace MovieReviewTest
         [Fact]
         public void TestAverageRatingFromReviewer()
         {
-            int wantedViewer = 6;
-            double expectedResult = 5;
+            int wantedViewer = 4;
+            double expectedResult = 2.4d;
             double result = rs.GetAverageRateFromReviewer(wantedViewer);
             Assert.Equal(expectedResult, result);
         }
@@ -36,9 +36,9 @@ namespace MovieReviewTest
         [Fact]
         public void Test_GetNumberOfRatesByReviewer()
         {
-            int wantedReviewer = 1;
-            int wantedRate = 3;
-            int expectedResult = 136;
+            int wantedReviewer = 4;
+            int wantedRate = 1;
+            int expectedResult = 2;
             int result = rs.GetNumberOfRatesByReviewer(wantedReviewer, wantedRate);
             Assert.Equal(expectedResult, result);
         }
@@ -47,10 +47,16 @@ namespace MovieReviewTest
 
         public void TestGetNumberOfReviews()
         {
-            int wantedMovie = 786312;
+            int wantedMovie = 4;
             int expectedResult = 2;
             int result = rs.GetNumberOfReviews(wantedMovie);
             Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void TestGetAverageRateOfMovie()
+        {
+            
         }
     }
 }
